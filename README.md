@@ -1,0 +1,2 @@
+# scholar-101
+AI STUDY SAAS APP
