@@ -28,7 +28,7 @@ export const metadata = {
 // Type annotation for `children` is removed.
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+      <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <html lang="en">
         <body className={outfit.className}>
           
@@ -44,3 +44,4 @@ export default function RootLayout({ children }) {
   
 }
 console.log("Provider")
+console.log('Publishable Key:', process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY)

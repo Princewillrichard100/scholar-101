@@ -32,6 +32,11 @@ export default function LandingPage() {
   if (!mounted) {
     return null;
   }
+  console.log("ENV VARS:", {
+  DATABASE: process.env.DATABASE_CONNECTION_STRING,
+  CLERK_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+});
+
 
   const features = [
     {
