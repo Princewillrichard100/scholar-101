@@ -42,6 +42,17 @@ export const CreateNewUser = inngest.createFunction(
     });
     return"Success";
   },
+async function fetchUser(email) {
+  for (let i = 0; i < 3; i++) {
+    try {
+      return await db.select().from(USER_TABLE).where(eq(USER_TABLE.email, email));
+    } catch (err) {
+      console.error("Retrying DB fetch:", err);
+      await new Promise((r) => setTimeout(r, 1000));
+    }
+  }
+  throw new Error("Failed to connect to database after 3 attempts.");
+}
 
   // Send email notification
   // send email notification after three days
