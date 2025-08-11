@@ -25,7 +25,9 @@ function SideBar() {
 
       {/* Create Button */}
       <div className="mt-6">
+        <Link href={'/create'} className='w-full'>
         <Button className="w-full rounded-[8px]">+ Create New</Button>
+        </Link>
       </div>
 
       {/* Menu */}

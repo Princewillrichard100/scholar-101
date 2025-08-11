@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Item } from "@radix-ui/react-select";
 
-function SelectOption() {
+function SelectOption({selectedStudyType}) {
   const options = [
     {
       name: "Exam",
@@ -40,16 +41,18 @@ function SelectOption() {
             className={`justify-center items-center flex flex-col gap-5 p-5 border rounded-xl hover:border-primary transition cursor-pointer ${
               selectedOption === option.name ? "bg-primary" : "border-gray-300"
             }`}
-            onClick={() => setSelectedOption(option.name)}
+            onClick={() => {setSelectedOption(option.name);selectedStudyType(option.name)}}
           >
             <Image src={option.icon} alt={option.name} width={50} height={50} />
             <h2 className="text-sm mt-2">{option.name}</h2>
-            <div className="mt-10">{step == 0 ? <SelectOption /> : null}</div>
+            {/* <div className="mt-10">{step ==0?  <SelectOption /> : null}</div>
             <div className="flex justify-between w-full mt-32">
-              {step != 0 && <Button variant="outline">Previous</Button>}
+              {step !=0? <Button variant="outline">Previous</Button>:'_'}
               <Button>Next</Button>
             </div>
+          </div> */}
           </div>
+          
         ))}
       </div>
     </div>
